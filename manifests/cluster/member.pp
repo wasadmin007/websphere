@@ -10,7 +10,7 @@
 define websphere::cluster::member (
   $profile_base,
   $cluster,
-  $node,
+  $node_name,
   $cell,
   $dmgr_profile,
   $cluster_member_name              = $title,
@@ -51,7 +51,7 @@ define websphere::cluster::member (
   validate_string($dmgr_profile)
   validate_absolute_path($profile_base)
   validate_string($cluster)
-  validate_string($node)
+  validate_string($node_name)
   validate_string($cell)
   validate_string($user)
 
@@ -86,7 +86,7 @@ define websphere::cluster::member (
     dmgr_profile                     => $dmgr_profile,
     profile_base                     => $profile_base,
     cluster                          => $cluster,
-    node                             => $node,
+    node                             => $node_name,
     cell                             => $cell,
     runas_user                       => $runas_user,
     runas_group                      => $runas_group,
@@ -127,7 +127,7 @@ define websphere::cluster::member (
       dmgr_profile => $dmgr_profile,
       profile_base => $profile_base,
       cell         => $cell,
-      node         => $node,
+      node         => $node_name,
       wsadmin_user => $wsadmin_user,
       wsadmin_pass => $wsadmin_pass,
       dmgr_host    => $dmgr_host,
